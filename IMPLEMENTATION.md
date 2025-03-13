@@ -12,26 +12,29 @@ sequenceDiagram
     participant UI as User Interface
     participant RS as Recipe Store
     participant AI as AI Service
+    participant EF1 as Parse-Recipe Edge Function
+    participant EF2 as Generate-Image Edge Function
     participant OAI as OpenAI API
-    participant PS as Photo Service
-    participant S as Storage
 
     UI->>RS: Process Recipe Text
     RS->>AI: Parse Recipe
-    AI->>OAI: Generate Response
-    OAI-->>AI: Recipe Data
-    AI-->>RS: Structured Recipe
+    AI->>EF1: Call Parse-Recipe
+    EF1->>OAI: Generate Response
+    OAI-->>EF1: Recipe Data
+    EF1-->>AI: Parsed Recipe Data
     
     opt Generate Photo
-        RS->>PS: Request AI Photo
-        PS->>OAI: Generate Image
-        OAI-->>PS: Image URL
-        PS->>S: Store Image
-        S-->>PS: Image Path
-        PS-->>RS: Photo Data
+        RS->>AI: Request Image Generation
+        AI->>EF2: Call Generate-Image
+        EF2->>OAI: Generate Image
+        OAI-->>EF2: Image URL
+        EF2-->>AI: Image Data
     end
     
-    RS-->>UI: Updated Recipe
+    AI-->>RS: Updated Recipe
+    RS-->>UI: Display Updated Recipe
+```
+
 ```
 
 ### State Management Flow
