@@ -1,0 +1,12 @@
+@import './index.css';
+
+/* Custom utility classes */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .bg-gradient-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  }
+}
