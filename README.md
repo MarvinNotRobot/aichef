@@ -45,8 +45,8 @@ If you encounter issues while using the application, consider the following solu
 
 ## Contact Information
 For support or questions, please reach out to:
-- Email: support@example.com
-- GitHub Issues: [Link to Issues](https://github.com/your-repo/issues)
+- Email: reality_68goodly@icloud.com
+
 
 ## Visuals
 Consider adding screenshots or diagrams to illustrate the application's interface or workflow. This can help users better understand how to navigate and utilize the features effectively.
